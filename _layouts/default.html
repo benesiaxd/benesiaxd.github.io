@@ -4,26 +4,53 @@
   {% include head.html %}
 
   <body>
-    <nav class="nav">
-      <div class="nav-container">
-        <a href="{{ site.baseurl }}/">
-          <h2 class="nav-title">{{ site.title }}</h2>
-        </a>
-        <ul>
-          <li><a href="{{ '/about' | prepend: site.baseurl }}">About</a></li>
-          <li><a href="{{ site.baseurl }}/">Posts</a></li>
-        </ul>
-    </div>
-  </nav>
+      {% assign current = page.url | downcase | split: '/' %}
+      <nav class="nav">
+        <div class="nav-container">
+            <ul>
+                <li class="transition">
+                    <a href="{{ '' | prepend: site.baseurl }}/" {% if current[1] == "about" or current[1] == "life" or
+                    current[1] == "algorithm" or current[1] == "systemsoftware" or current[1] == "book" or current[1] == "project" %} class="normal" {% endif %} class="active">Home</a>
+                </li>
+                <li class="transition">
+                    <a href="{{ '/algorithm' | prepend: site.baseurl }}" {% if current[1] == "algorithm" %} class="active"{% endif %} >Algorithm</a>
+                </li>
+                <li class="transition">
+                    <a href="{{ '/systemsoftware' | prepend: site.baseurl }}" {% if current[1] == "systemsoftware" %} class="active"{% endif %} >System Software</a>
+                </li>
+                <li class="transition">
+                    <a href="{{ '/project' | prepend: site.baseurl }}" {% if current[1] == "project" %} class="active"{% endif %} >Project</a>
+                </li>
+                <li class="transition">
+                    <a href="{{ '/life' | prepend: site.baseurl }}" {% if current[1] == "life" %} class="active"{% endif %} >LifeStyle</a>
+                </li>
+                <li class="transition">
+                    <a href="{{ '/book' | prepend: site.baseurl }}" {% if current[1] == "book" %} class="active"{% endif %} >Book</a>
+                </li>
+                <li class="transition">
+                    <a href="{{ '/about' | prepend: site.baseurl }}" {% if current[1] == "about" %} class="active"{% endif %} >About</a>
+                </li>
+            </ul>
+        </div>
+      </nav>
+
+    {% if page.post-header == true %}
+        {% include post-header.html %}
+    {% endif %}
+    {% if page.project-header == true %}
+        {% include project-header.html %}
+    {% endif %}
 
     <main>
       {{ content }}
-    </main>
 
-    <footer>
-      <span>
-        &copy; <time datetime="{{ site.time }}">{{ site.time | date: '%Y' }}</time> {{ site.author.name }}. Made with Jekyll using the <a href="https://github.com/chesterhow/tale/">Tale</a> theme.
-      </span>
-    </footer>
+        {% if page.text == true %}
+            {% include share.html %}
+        {% endif %}
+
+      </main>
+
+      {% include footer.html %}
+
   </body>
 </html>
