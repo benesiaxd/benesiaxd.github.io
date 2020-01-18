@@ -2,7 +2,7 @@
 layout: post
 author: "Kwon Yool"
 title:  "체스판 다시 칠하기"
-subtitle: "Algorithm"
+subtitle: "백준 1018번 문제"
 type: "C++"
 algorithm: true
 text: true
