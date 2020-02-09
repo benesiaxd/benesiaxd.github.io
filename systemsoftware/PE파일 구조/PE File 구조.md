@@ -14,7 +14,7 @@ draft: true
 typora-root-url: img
 ---
 
-#### **😀정의**
+#### 😀정의
 
   *PE파일* 은 **Windows 운영체제에서 사용되는 실행 파일 형식**이다. 기존 UNIX에서 사용되는 COFF를 기반으로 Microsoft에서 만들었다.
   애초에는 다른 운영체제에 이식성을 좋게 하려는 의도였으나 <u>실제로는 Windows 계열의 운영체제에서만 사용되고 있다.</u>
@@ -38,7 +38,7 @@ PE파일의 종류는 아래와 같다.
 
 <br/>
 
- #### **🙂기본구조**
+#### 🙂기본구조
 
 DOS Header부터 Section header 까지를 PE 헤더, 그 밑의 Section들을 합쳐서 PE 바디 라고 한다. 파일에서는 offset으로 메모리에서는 VA로 위치를 표현한다. 파일이 메모리에 로딩되면 모양이 달라진다. 
 
@@ -54,7 +54,7 @@ PE헤더의 끝부분과 각 섹션의 끝에는 NULL padding 이라고 불리�
 
 <br/>
 
- #### 😵 VA(Virtual Address)  &  RVA(Relative Virtual Address)
+#### 😵 VA(Virtual Address)  &  RVA(Relative Virtual Address)
 
   **VA(Virtual Address)는 프로세스 가상 메모리의 절대주소를 말하며, RVA(Relative Virtual Address)는 어느 기준 위치(ImageBase)에서 부터의 상대주소를 말한다**. VA와 RVA의 관계는 다음 식과 같다.
 
@@ -70,7 +70,7 @@ PE헤더의 끝부분과 각 섹션의 끝에는 NULL padding 이라고 불리�
 
 
 
- #### 👨‍💻섹션의 종류
+#### 👨‍💻섹션의 종류
 
 ##### 1.  .text
 
